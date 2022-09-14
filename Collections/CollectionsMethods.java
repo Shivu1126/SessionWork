@@ -11,7 +11,7 @@ public class CollectionsMethods {
 		
 		List<String> list1 = new LinkedList<>();
 		List<String> list2 = new LinkedList<>();
-		List<String> list3 = new LinkedList<>();
+		List<Integer> list3 = new LinkedList<>();
 
 
 		list1.add("shiv");
@@ -36,7 +36,40 @@ public class CollectionsMethods {
 		 * If list is empty...its return empty list*/
 		
 		System.out.println(Collections.frequency(list1, "hey.."));
-		/*frequency() is count the specific value...return the int value.*/
+		/*frequency() is count the specific value...return the int value.
+		 */
+		
+		list3.add(10);
+		list3.add(40);
+		list3.add(10);
+		list3.add(13);
+		System.out.println(Collections.max(list3));
+		//max() is return the maximum value of list
+		System.out.println(Collections.min(list3));
+		//min() is return the minimum value of list
+		
+		Collections.replaceAll(list3,50,30);
+		System.out.println(list3);
+		/*replaceAll(listName,oldValue,newValue) is replace the old value to new value in list.
+		 * if you give the value..that value not present in list..this method not consider...*/
+		
+		Collections.reverse(list3);
+		System.out.println(list3);
+		// reverse() is reverse the list at the same list*/
+		
+		Collections.shuffle(list3);
+		System.out.println(list3);
+		// shuffle() is collapsed the list elements at the same list
+		
+		Collections.sort(list3);
+		System.out.println(list3);
+		//sort() is sort the list in ascending order
+		
+		Collections.swap(list3, 0, 2);
+		System.out.println(list3);
+		//swap(listName, pos1, pos2) is swap the value in pos1 to pos2.
+		//It is throw the exception when the index is not found.
+		
 	}
 
 }
