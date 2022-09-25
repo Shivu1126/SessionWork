@@ -1,5 +1,4 @@
-package FileHandling;
-
+package fileHandling;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -13,7 +12,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class FileHandlingTask {
-
 	public static void main(String[] args) throws Exception {
 		StartMain init = new StartMain();
 		init.countLine();
@@ -25,11 +23,9 @@ public class FileHandlingTask {
 class StartMain 
 {
 	File file = new File("C:\\Users\\saran\\eclipse-workspace\\JavaSessionWork\\src\\FileHandling\\FileHandlingTask.java");
-	
 	protected void countLine() throws IOException
 	{
 		int countLine = 0;
-
 		try {
 			FileReader fReader = new FileReader(file);
 			BufferedReader bReader = new BufferedReader(fReader);
@@ -50,13 +46,10 @@ class StartMain
 	protected void countCharacters() throws Exception
 	{
 		int countChar = 0;
-
 		try {
 			FileReader fReader = new FileReader(file);
 			BufferedReader bReader = new BufferedReader(fReader);
 			String line = bReader.readLine();
-			//int l = 1;
-			
 			while(line!=null)
 			{
 				int i=0;
@@ -68,11 +61,8 @@ class StartMain
 					}
 					i++;
 				}
-				//System.out.println(l+".line : "+countChar);
-				//l++;
 				line = bReader.readLine();
 			}
-			
 		} catch (FileNotFoundException e) {
 			e.printStackTrace(); 
 		}
