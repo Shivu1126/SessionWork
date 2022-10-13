@@ -7,10 +7,11 @@ import java.util.Scanner;
 
 public class PassengerDetails extends WaitingListDetails 
 {
-	Scanner scanner = new Scanner(System.in);
+	private Scanner scanner = new Scanner(System.in);
 	protected void showPassengerDetails() 
 	{
 		Statement statement = null;
+		int ticketInOrNot=0;
 		try {
 			statement = jdbcConnection();
 		} catch (ClassNotFoundException | SQLException e1) {
@@ -41,7 +42,8 @@ public class PassengerDetails extends WaitingListDetails
 				return;
 			}
 		}
-		try {
+		try 
+		{
 			while(passengerDetails.next())
 			{
 				System.out.println("----------------------------------------------");
@@ -53,10 +55,13 @@ public class PassengerDetails extends WaitingListDetails
 				System.out.println("Ticket Price : "+passengerDetails.getInt(5));
 				System.out.println("Class        : "+passengerDetails.getString(6));
 				System.out.println("----------------------------------------------");
+				ticketInOrNot=1;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		if(ticketInOrNot==0)
+			System.out.println("Ticket doesn't exixst");
 	}
 }

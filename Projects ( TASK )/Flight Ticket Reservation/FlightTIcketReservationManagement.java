@@ -15,8 +15,8 @@ public class FlightTIcketReservationManagement{
 }
 class BookFlightTicket extends ViewFlightDetails 
 {
-	Scanner scanner = new Scanner(System.in);
-	protected void flightTicketBooking() throws ClassNotFoundException, SQLException
+	private Scanner scanner = new Scanner(System.in);
+	protected void flightTicketBooking() 
 	{
 		System.out.println("Welcome to Booking Flight Ticket");
 		System.out.println("--------------------------------");
@@ -32,23 +32,32 @@ class BookFlightTicket extends ViewFlightDetails
 			System.out.println("Enter your option");
 			int choice = scanner.nextInt();
 			
-			BookFlightTicket bookFlightDetails = new BookFlightTicket();
 			switch(choice)
 			{
 			case 1:
-				bookFlightDetails.viewFlightDetails();
+				try {
+					viewFlightDetails();
+				} catch (ClassNotFoundException | SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				break;
 			case 2:
-				bookFlightDetails.bookFlightTicket();
+				try {
+					bookFlightTicket();
+				} catch (ClassNotFoundException | SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}				
 				break;
 			case 3:
-				bookFlightDetails.cancelTicket();
+				cancelTicket();
 				break;
 			case 4:
-				bookFlightDetails.showPassengerDetails();
+				showPassengerDetails();
 				break;
 			case 5:
-				bookFlightDetails.waitingListDeatils();
+				waitingListDeatils();
 				break;
 			case 6:
 				return;

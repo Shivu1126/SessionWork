@@ -7,8 +7,8 @@ import java.util.Scanner;
 
 public class CancelTicket extends JdbcConnectionClass
 {
-	Scanner scanner = new Scanner(System.in);
-	Statement statement=null;
+	private Scanner scanner = new Scanner(System.in);
+	private Statement statement=null;
 
 	protected void cancelTicket()
 	{
@@ -79,9 +79,13 @@ public class CancelTicket extends JdbcConnectionClass
 	private void waitingListToPassengerList(int flightId, int totalBookingTicket, int ticketPrice)
 	{
 		try {
-			ResultSet waitingList = statement.executeQuery("select *from waitingList where flightId = "+flightId+" and ticketCount <= "+totalBookingTicket);
+			ResultSet waitingList = statement.executeQuery("select *from waitingList where flightId = "+flightId+" and ticketCount <= "+(50-totalBookingTicket));
 			
-			waitingList.next();
+			if(!waitingList.next())
+			{
+				System.out.println("");
+				return;
+			}
 			
 			String passengerName = waitingList.getString(1);
 			String passengerMailId = waitingList.getString(2);

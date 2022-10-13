@@ -7,12 +7,11 @@ import java.util.Scanner;
 
 public class BookTicket extends PassengerDetails
 {
-	Scanner scanner = new Scanner(System.in);
+	private Scanner scanner = new Scanner(System.in);
 	protected void bookFlightTicket() throws ClassNotFoundException, SQLException
 	{
 		Statement statement = jdbcConnection();
 
-		//ResultSet flightDetails =  statement.executeQuery("select *from flightdetails");
 		int checkFlightId;
 		while(true)
 		{
@@ -48,7 +47,18 @@ public class BookTicket extends PassengerDetails
 			
 			System.out.println("Enter your mail id");
 			String passengerMailId = scanner.next();
-			
+			while(true)
+			{
+				MailIdCheck checkMail = new MailIdCheck();
+				if(checkMail.checkValidEmail(passengerMailId))
+				{
+					System.out.println("Invalid email Id..");
+					System.out.println("Enter valid emailId");
+					scanner.next();
+				}
+				else
+					break;
+			}
 			
 			
 			System.out.println("Enter How many tickets..");
