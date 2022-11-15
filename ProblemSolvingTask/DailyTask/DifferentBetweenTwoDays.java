@@ -40,3 +40,7 @@ class DaysCount
 		return year/4 - year/100 + year/400;
 	}
 }
+//Input:	dt1 = {1, 2, 2000};
+//			dt2 = {1, 2, 2004};
+//Output: 	1461
+//			Number of days is 365*4 + 1

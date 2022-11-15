@@ -1,4 +1,4 @@
-package problemSolving;
+package rajeesantask;
 
 import java.util.Scanner;
 
